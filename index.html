@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GVT-EA4---Parametrisierte-Flaechen---Fabian-Meintzer/</title>
+
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; background:#eef2f7; color:#1a202c;
+         margin:0; padding:24px; }
+  h1 { font-size:26px; margin:0 0 4px 0; }
+  h3 { font-size:19px; margin:0 0 8px 0; }
+  .bereich { background:#ffffff; border:1px solid #d7dee8; border-radius:8px;
+             padding:16px 18px; margin-bottom:18px; }
+  .flex { display:flex; flex-wrap:wrap; gap:24px; }
+  canvas { border:1px solid #b9c4d0; border-radius:4px; background:#f2f2f2; }
+  #info { flex:1 1 340px; min-width:320px; max-width:560px; }
+  #info p { line-height:1.45; margin:10px 0; }
+  .formel { font-family:Consolas, "Courier New", monospace; font-size:15px;
+            background:#f5f8fc; border-left:4px solid #2b6cb0; padding:10px 12px; }
+  .knopf { display:inline-block; margin:4px 4px 4px 0; padding:8px 12px; border:0;
+           border-radius:5px; background:#4a5568; color:#dbe4ee; font-size:14px;
+           cursor:pointer; }
+  .knopf:hover { background:#2b6cb0; color:#fff; }
+  .gruppe { margin-bottom:8px; }
+  .label { display:inline-block; width:110px; color:#4a5568; font-size:13px; }
+  .klein { font-size:13px; color:#4a5568; }
+
+</style>
+<script src="script.js"></script>
+</head>
+<body onload="init()">
+
+<h1>Graphical Visualisation Technologies - EA4: <br> Parametrisierte Flächen
+</h1>
+
+<div class="bereich">
+  <div class="flex">
+
+    <div>
+      <canvas id="canvas" width="500" height="500"></canvas>
+
+      <div class="gruppe" style="margin-top:12px">
+        <span class="label">Fläche:</span>
+        <button id="btnFunnel" class="knopf" onclick="selectSurface('funnel')">Funnel</button>
+        <button id="btnSinus" class="knopf" onclick="selectSurface('sinus')">Sinuswelle</button>
+        <button id="btnEigen" class="knopf" onclick="selectSurface('eigen')">Trichterwelle (eigene Kreation)</button>
+      </div>
+
+      <div class="gruppe">
+        <span class="label">Darstellung:</span>
+        <button id="btnWire" class="knopf" onclick="selectMode('wire')">Drahtgitter</button>
+        <button id="btnFill" class="knopf" onclick="selectMode('fill')">Füllung</button>
+        <button id="btnBoth" class="knopf" onclick="selectMode('both')">Füllung + Gitter</button>
+      </div>
+
+      <div class="gruppe">
+        <span class="label">Ansicht:</span>
+        <button class="knopf" onclick="drehen(-1)">&#8592; drehen</button>
+        <button class="knopf" onclick="drehen(1)">drehen &#8594;</button>
+        <button class="knopf" onclick="kippen(1)">Draufsicht + </button>
+        <button class="knopf" onclick="kippen(-1)">Draufsicht - </button>
+        <button class="knopf" onclick="resetView()">zurücksetzen</button>
+      </div>
+
+      <p class="klein">Tipp: Mit den Pfeiltasten lässt sich die Ansicht ebenfalls
+      drehen (links/rechts) und kippen (hoch/runter), die Taste <b>R</b> setzt sie
+      zurück. <br>
+      <br>
+      PS: Vorletzte Abgabe vor GTA VI!</p>
+    </div>
+
+    <div id="info"></div> 
+
+  </div>
+</div>
+ 
+  <footer>
+      <p>Erstellt von Fabian Meintzer in Brandenburg an der Havel</p>
+    </footer>
+
+</body>
+</html>
